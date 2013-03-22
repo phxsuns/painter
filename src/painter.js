@@ -1,1 +1,12 @@
-var xxx = 1;alert(xxx);
+/* 
+ *  绘图类
+ *  
+ *  初始化参数
+ *
+ */
+
+var painter = function(){
+
+	
+
+}
