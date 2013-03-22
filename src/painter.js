@@ -1,0 +1,1 @@
+var xxx = 1;alert(xxx);
