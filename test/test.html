@@ -4,15 +4,42 @@
 		<title>Painter</title>
 		<meta charset="utf-8">
 		<!-- <link type="text/css" rel="stylesheet" href="src/base.css"> -->
-		<script src="lib/jquery.js"></script>
-		<script src="lib/font.js"></script>
+		<script src="../lib/jquery.js"></script>
+		<script src="../lib/font.js"></script>
 	</head>
 	<body>
 
+		<canvas id="c"></canvas>
 
-		<script src="src/layer.js"></script>
+		<script src="../src/layer.js"></script>
+		<script src="../src/util.js"></script>
 
 		<script>
+
+			var canvas = document.getElementById('c');
+    		var ctx = canvas.getContext('2d');
+
+    		var fontA = new Font('http://127.0.0.1/painter/test/testfont.ttf');
+
+			var lt = new layer('Text',{x:0,y:0},0,{text:'永',fontObj:fontA,color:'red',size:50});
+
+			var lt2 = new layer('Text',{x:40,y:10},0,{text:'啦啦啦',fontObj:fontA,color:'red',size:22});
+
+			lt.setCavans(ctx).draw();
+			lt2.setCavans(ctx).draw();
+
+			var imga = new Image();
+			imga.src = 'http://img03.taobaocdn.com/tps/i3/T1AaBCXw8hXXbQwwLP-480-220.png';
+
+			var li = new layer('Image',{x:0,y:0},0,{src:'http://localhost/painter/test/test.jpg',width:100,height:100});
+
+			var li2 = new layer('Image',{x:0,y:0},0,{src:'http://localhost/painter/test/test.jpg'});
+
+			//li.setImage({image:imga});
+			li.setCavans(ctx).draw();
+
+			console.log(li);
+			console.log(li2);
 
 
 
