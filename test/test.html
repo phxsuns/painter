@@ -19,14 +19,19 @@
 			var canvas = document.getElementById('c');
     		var ctx = canvas.getContext('2d');
 
-    		var fontA = new Font('http://127.0.0.1/painter/test/testfont.ttf');
+    		var fontA = new Font('/painter/test/testfont.ttf');
+    		var fontB = new Font('/painter/test/testfont.ttf');
+    		var fontC = new Font('/painter/test/testfont.ttf');
 
 			var lt = new layer('Text',{x:0,y:0},0,{text:'永',fontObj:fontA,color:'red',size:50});
 
-			var lt2 = new layer('Text',{x:40,y:10},0,{text:'啦啦啦',fontObj:fontA,color:'red',size:22});
+			var lt2 = new layer('Text',{x:40,y:10},0,{text:'啦啦啦',fontObj:fontB,color:'red',size:22});
+
+			//var lt3 = new layer('Text',{x:40,y:20},0,{text:'我是小可爱',fontObj:fontC,color:'blue',size:22});
 
 			lt.setCavans(ctx).draw();
 			lt2.setCavans(ctx).draw();
+			//lt3.setCavans(ctx).draw();
 
 			var imga = new Image();
 			imga.src = 'http://img03.taobaocdn.com/tps/i3/T1AaBCXw8hXXbQwwLP-480-220.png';

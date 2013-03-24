@@ -121,10 +121,10 @@ layer.prototype = {
 	_drawHandlerText: function(){
 		var c = this.canvas;
 		c.textBaseline = 'top';
-        c.font = this.property.bold + ' ' + this.property.size + 'px ' + this.property.font;
-        c.fillStyle = this.property.color;
-        c.fillText(this.text,this.pos.x,this.pos.y);
-        this.onDrawComplete();
+		c.font = this.property.bold + ' ' + this.property.size + 'px ' + this.property.font;
+		c.fillStyle = this.property.color;
+		c.fillText(this.text,this.pos.x,this.pos.y);
+		this.onDrawComplete();
 	},
 
 	_drawHandlerImage: function(){
@@ -138,14 +138,13 @@ layer.prototype = {
 		var me = this;
 		me.ready = false;
 
-		if(typeof src == 'string')	var font = new Font(src);
+		if(typeof src == 'string') var font = new Font(src);
 		else var font = src;
 		font.bindload(function(){
 			me.property.font = font.name;
 			me.obj.font = font;
 			me.ready = true;
-		});
-		font.load();
+		}).load();
 
 	},
 
@@ -172,8 +171,6 @@ layer.prototype = {
 		img.src = url;
 
 	}
-
-
 
 
 }
