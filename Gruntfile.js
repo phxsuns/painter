@@ -9,7 +9,7 @@ module.exports = function(grunt) {
 				banner: BANNER
 			},
 			painter: {
-				src: ['src/intro.js', 'src/layer.js', 'src/painter.js', 'src/outro.js'],
+				src: ['src/intro.js', 'src/layer.js', 'src/painter.js', 'src/util.js', 'src/outro.js'],
 				dest: 'dist/<%= pkg.name %>.js'
 			}
 		},

@@ -9,14 +9,17 @@
 	</head>
 	<body>
 
-		<canvas id="c"></canvas>
+		<!-- <canvas id="c"></canvas> -->
+		<div id="d"></div>
 
 		<script src="../src/layer.js"></script>
+		<script src="../src/painter.js"></script>
 		<script src="../src/util.js"></script>
 
 		<script>
 
-			var canvas = document.getElementById('c');
+			//var canvas = document.getElementById('c');
+			var canvas = document.createElement('canvas');
     		var ctx = canvas.getContext('2d');
 
     		var fontA = new Font('/painter/test/testfont.ttf');
@@ -46,6 +49,11 @@
 			console.log(li);
 			console.log(li2);
 
+			$(canvas).appendTo('body');
+
+
+			var p = new painter();
+			p.render($('#d')[0]);
 
 
 		</script>
