@@ -25,23 +25,40 @@ var painter = function(id, size){
 
 painter.prototype = {
 
-	add: function(n){
+	/* 在画布添加图层
+	 * @param {String} type 图层的属性 (Text 和 Image 两类)
+	 * @param {Object} pos 图层的在画布上的位置 {x:横坐标,y:纵坐标}
+ 	 * @param {int} zindex 图层的在画布上的层次
+ 	 * @param {Object} info 图层的内容
+ 	 * return painter对象
+	 */
+	add: function(type,info,pos,zindex){
 
 	},
 
-	del: function(n){
+	/* 从画布删除图层
+	 * @param {Layer} layer 图层对象
+ 	 * return painter对象
+	 */
+	del: function(layer){
 
 	},
 
-	set: function(n){
+	/* 设置图层
+	 * @param {Layer} layer 图层对象
+	 * @param {key} key 设置属性
+	 * @param {value} value 设置值
+ 	 * return painter对象
+	 */
+	set: function(layer,key,value){
 
 	},
 
-	sets: function(n){
+	sets: function(layer,info){
 
 	},
 
-	find: function(n){
+	find: function(layer){
 
 	},
 

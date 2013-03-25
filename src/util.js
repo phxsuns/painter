@@ -21,14 +21,32 @@ var util = {
 	},
 
 	/* 
+	 *  数组倒序排列
+	 *  @param {Array} 源数组
+	 *  return {Array} 处理过的数组
+	 */
+	arrReSort : function(arr){
+		
+	},
+
+	/* 
 	 *  依据对象关键字数组排序
 	 *  @param {Array} 源数组
-	 *  @param {String} 关键字
+	 *  @param {String} 关键字(值需要为int类型)
 	 *  @param {Boolean} 是否升序，默认升序
 	 *  return {Array} 处理过的数组
 	 */
-	arrOrderByKey: function(arr,key,order){
-
+	arrSortByKey: function(arr,key,order){
+		for(var i = 0; i < arr.length - 1; i++){
+			for (var ii = 0; ii < arr.length - i - 1; ii++){
+				if(arr[ii][key] > arr[ii+1][key]){
+					var t = arr[ii];
+					arr[ii] = arr[ii+1];
+					arr[ii+1] = t;
+				}
+			}
+		}
+		return arr;
 	}
 	
 }
