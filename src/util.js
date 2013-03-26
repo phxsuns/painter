@@ -13,20 +13,8 @@ var util = {
 	 *  return {Array} 处理过的数组
 	 */
 	arrRmEle : function(arr,index){
-		var r = [];
-		for(var i = 0; i < arr.length; i ++){
-			if(i != index) r.push(arr[i]);
-		}
-		return r;
-	},
-
-	/* 
-	 *  数组倒序排列
-	 *  @param {Array} 源数组
-	 *  return {Array} 处理过的数组
-	 */
-	arrReSort : function(arr){
-		
+		arr.splice(index,1);
+		return arr;
 	},
 
 	/* 
@@ -37,6 +25,7 @@ var util = {
 	 *  return {Array} 处理过的数组
 	 */
 	arrSortByKey: function(arr,key,order){
+		if(typeof order == 'undefined') order = true;
 		for(var i = 0; i < arr.length - 1; i++){
 			for (var ii = 0; ii < arr.length - i - 1; ii++){
 				if(arr[ii][key] > arr[ii+1][key]){
@@ -46,6 +35,7 @@ var util = {
 				}
 			}
 		}
+		if(!order) arr.reverse();
 		return arr;
 	}
 	
