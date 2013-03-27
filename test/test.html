@@ -10,7 +10,7 @@
 	<body>
 
 		<!-- <canvas id="c"></canvas> -->
-		<div id="d"></div>
+		<div id="d" style="display:none;"></div>
 
 		<script src="../src/layer.js"></script>
 		<script src="../src/painter.js"></script>
@@ -19,7 +19,7 @@
 		<script>
 
 			//var canvas = document.getElementById('c');
-			var canvas = document.createElement('canvas');
+			/*var canvas = document.createElement('canvas');
     		var ctx = canvas.getContext('2d');
 
     		var fontA = new Font('/painter/test/testfont.ttf');
@@ -49,11 +49,16 @@
 			console.log(li);
 			console.log(li2);
 
-			$(canvas).appendTo('body');
+			$(canvas).appendTo('body');*/
 
-
-			var p = new painter();
+			var fontA = new Font('/painter/test/testfont.ttf');
+			var p = new painter('painter',{width:400,height:300});
 			p.render($('#d')[0]);
+			p.add('Text',{text:'我是文字',fontObj:fontA,size:30,color:'#aaee33'},{x:10,y:20},22);
+			p.add('Image',{src:'http://img03.taobaocdn.com/tps/i3/T1AaBCXw8hXXbQwwLP-480-220.png'},{x:0,y:0},11);
+			p.on('drawComplete',function(){
+				$('#d').show();
+			}).draw();
 
 
 		</script>

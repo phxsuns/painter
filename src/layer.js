@@ -20,6 +20,7 @@ var layer = function(type,pos,zindex,info){
 	this.obj = {};
 	this.canvas = null;
 	this.ready = false;
+	this.id = 0;
 
 	if(this.type == 'Text'){
 
@@ -97,6 +98,11 @@ layer.prototype = {
 			this.loadImage(info.src);
 			this.src = info.src;
 		}
+		return this;
+	},
+
+	setId: function(id){
+		this.id = id;
 		return this;
 	},
 
