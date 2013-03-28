@@ -20,7 +20,7 @@ var painter = function(id, size){
 	this.layerList = [];
 	this.idCount = 0;
 
-	this.eventDrawComplete = [];
+	this.eventList = {};
 
 	this._createCanvas();
 
@@ -33,7 +33,7 @@ painter.prototype = {
 	 * @param {Object} info 图层的内容
 	 * @param {Object} pos 图层的在画布上的位置 {x:横坐标,y:纵坐标}
  	 * @param {int} zindex 图层的在画布上的层次
- 	 * return painter对象
+ 	 * return 图层对象id
 	 */
 	add: function(type,info,pos,zindex){
 		if(type != 'Text' && type != 'Image') return this;
@@ -42,7 +42,7 @@ painter.prototype = {
 		var l = new layer(type,pos,zindex,info);
 		l.setId(this.idCount++).setCavans(this.ctx);
 		this.layerList.push(l);
-		return this;
+		return l.id;
 	},
 
 	/* 从画布删除图层
@@ -83,35 +83,21 @@ painter.prototype = {
 	on: function(type,cb){
 		if(!type) return this;
 		cb = cb || function(){};
-		switch(type){
-			case 'drawComplete':
-				this.eventDrawComplete.push(cb);
-				break;
-		}
+		this.eventList[type] = this.eventList[type] || [];
+		this.eventList[type].push(cb);
 		return this;
 	},
 
 	un: function(type){
 		if(!type) return this;
-		switch(type){
-			case 'drawComplete':
-				this.eventDrawComplete = [];
-				break;
-		}
+		this.eventList[type] = [];
 		return this;
 	},
 
 	_doEvent: function(type){
-		var eventList = [];
-		switch(type){
-			case 'drawComplete':
-				eventList = this.eventDrawComplete;
-				break;
-			default:
-				eventList = [];
-		}
-		for(var i = 0;i < eventList.length; i++){
-			eventList[i]();
+		this.eventList[type] = this.eventList[type] || [];
+		for(var i = 0;i < this.eventList[type].length; i++){
+			this.eventList[type][i]();
 		}
 	},
 
