@@ -1,3 +1,3 @@
-/* painter类 */
+
 (function(){
 

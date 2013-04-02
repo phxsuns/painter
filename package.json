@@ -1,6 +1,7 @@
 {
-  "name": "painter",
+  "name": "Painter",
   "version": "0.1.0",
+  "author": "Xhao Sun <sunxuhao@gmail.com>",
   "devDependencies": {
     "grunt": "~0.4.1",
     "grunt-contrib-concat": "~0.1.3",

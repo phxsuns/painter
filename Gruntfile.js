@@ -1,6 +1,6 @@
 module.exports = function(grunt) {
 
-	var BANNER = '/* <%= pkg.name %> - v<%= pkg.version %> - ' + '<%= grunt.template.today("yyyy-mm-dd hh:MM:ss") %> */' + '\n';
+	var BANNER = '/**\n * <%= pkg.name %> \n * version <%= pkg.version %> \n * <%=pkg.author %> \n * ' + '<%= grunt.template.today("yyyy-mm-dd hh:MM:ss") %>\n */' + '\n';
 
 	grunt.initConfig({
 		pkg: grunt.file.readJSON('package.json'),
