@@ -18,7 +18,7 @@ var util = {
 	},
 
 	/* 
-	 *  依据对象关键字数组排序
+	 *  依据对象关键字 数组排序
 	 *  @param {Array} 源数组
 	 *  @param {String} 关键字(值需要为int类型)
 	 *  @param {Boolean} 是否升序，默认升序
@@ -37,6 +37,20 @@ var util = {
 		}
 		if(!order) arr.reverse();
 		return arr;
+	},
+
+	/* 
+	 *  依据对象关键字 数组找索引
+	 *  @param {Array} 源数组
+	 *  @param {String} 关键字
+	 *  @param {} 关键字值
+	 *  return {int} 索引
+	 */
+	arrIndexOfByKey: function(arr,key,value){
+		for(var i = 0; i < arr.length; i++){
+			if(arr[i][key]===value) return i;
+		}
+		return -1;
 	}
 	
 }
