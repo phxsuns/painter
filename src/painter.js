@@ -169,6 +169,10 @@ painter.prototype = {
 		return this;
 	},
 
+	init: function(){
+		this.layerList = [];
+	},
+
 	_doEvent: function(type){
 		this.eventList[type] = this.eventList[type] || [];
 		for(var i = 0;i < this.eventList[type].length; i++){
